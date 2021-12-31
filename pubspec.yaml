@@ -1,9 +1,10 @@
 name: gradient_borders
-description: Gradient borders for inputs and containers
-version: 0.1.0
+description: Gradient borders for inputs and containers. Borders package integrated with a basic flutter widgets as a container and input decorations. Easy in use, platform independent.
+version: 0.2.0
+repository: https://github.com/obiwanzenobi/gradient-borders
 
 environment:
-  sdk: ">=2.15.1 <3.0.0"
+  sdk: ">=2.15.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

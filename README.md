@@ -25,7 +25,22 @@ Works with both: border radius, and with `BoxShape.circle`
 ![image](screenshots/box_borders.png)
 
 ### Input borders
-TBW
+You can use `GradientOutlineInputBorder` as a part of your input decoration:
+```dart
+TextField(
+  decoration: InputDecoration(
+    border: GradientOutlineInputBorder(
+      gradient: LinearGradient(colors: [Colors.red, Colors.blue]),
+      width: 2,
+    ),
+    focusedBorder: GradientOutlineInputBorder(
+     gradient: LinearGradient(colors: [Colors.yellow, Colors.green]),
+      width: 2
+    ),
+  label: Text("Example")),
+),
+```
+![image](screenshots/outline_input_borders.png)
 
 ### Sponsored by
 [The Code Brothers](https://thecodebrothers.pl)
