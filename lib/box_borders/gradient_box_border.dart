@@ -47,7 +47,7 @@ class GradientBoxBorder extends BoxBorder {
   }
 
   void _paintRRect(Canvas canvas, Rect rect, BorderRadius borderRadius) {
-    final RRect rrect = borderRadius.toRRect(rect).deflate(width);
+    final RRect rrect = borderRadius.toRRect(rect).deflate(width / 2);
     canvas.drawRRect(rrect, _getPaint(rect));
   }
 
