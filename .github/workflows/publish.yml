@@ -6,4 +6,10 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+*' # tag-pattern on pub.dev: 'v'
 jobs:
   publish:
+    - uses: actions/checkout@v3
+    - uses: kuhnroyal/flutter-fvm-config-action@v1
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: ${{ env.FLUTTER_VERSION }}
+        cache: true
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
