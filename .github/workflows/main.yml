@@ -9,6 +9,9 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}  
+          cache: true
       - run: dart format lib --set-exit-if-changed
       - run: flutter analyze
-      - run: flutter build web
+      - name: build web
+        working-directory: ./example
+        run: flutter build web
