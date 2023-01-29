@@ -11,3 +11,4 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}  
       - run: dart format lib --set-exit-if-changed
       - run: flutter analyze
+      - run: flutter build web
