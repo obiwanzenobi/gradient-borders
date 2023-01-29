@@ -1,4 +1,5 @@
 # Gradient borders
+[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
 Various borders that use gradient instead of boring plain colors.
 
@@ -37,7 +38,8 @@ TextField(
      gradient: LinearGradient(colors: [Colors.yellow, Colors.green]),
       width: 2
     ),
-  label: Text("Example")),
+    label: Text("Example"),
+  ),
 ),
 ```
 ![image](screenshots/outline_input_borders.png)

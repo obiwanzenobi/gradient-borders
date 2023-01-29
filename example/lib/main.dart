@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Gradient borders"),
+        title: const Text("Gradient borders"),
       ),
       body: Center(
         child: Column(
@@ -75,17 +75,18 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             const SizedBox(height: 16),
-            TextField(
+            const TextField(
               decoration: InputDecoration(
-                  border: GradientOutlineInputBorder(
-                    gradient: LinearGradient(colors: [Colors.red, Colors.blue]),
-                    width: 2,
-                  ),
-                  focusedBorder: GradientOutlineInputBorder(
-                    gradient: LinearGradient(colors: [Colors.yellow, Colors.green]),
-                    width: 2
-                  ),
-                  label: Text("Example")),
+                border: GradientOutlineInputBorder(
+                  gradient: LinearGradient(colors: [Colors.red, Colors.blue]),
+                  width: 2,
+                ),
+                focusedBorder: GradientOutlineInputBorder(
+                    gradient:
+                        LinearGradient(colors: [Colors.yellow, Colors.green]),
+                    width: 2),
+                label: Text("Example"),
+              ),
             ),
           ],
         ),

@@ -1,10 +1,11 @@
 import 'package:flutter/widgets.dart';
 
 class GradientBoxBorder extends BoxBorder {
-  final Gradient gradient;
-  final double width;
-
   const GradientBoxBorder({required this.gradient, this.width = 1.0});
+
+  final Gradient gradient;
+
+  final double width;
 
   @override
   BorderSide get bottom => BorderSide.none;
@@ -28,8 +29,10 @@ class GradientBoxBorder extends BoxBorder {
   }) {
     switch (shape) {
       case BoxShape.circle:
-        assert(borderRadius == null,
-            'A borderRadius can only be given for rectangular boxes.');
+        assert(
+          borderRadius == null,
+          'A borderRadius can only be given for rectangular boxes.',
+        );
         _paintCircle(canvas, rect);
         break;
       case BoxShape.rectangle:
@@ -47,13 +50,13 @@ class GradientBoxBorder extends BoxBorder {
   }
 
   void _paintRRect(Canvas canvas, Rect rect, BorderRadius borderRadius) {
-    final RRect rrect = borderRadius.toRRect(rect).deflate(width / 2);
+    final rrect = borderRadius.toRRect(rect).deflate(width / 2);
     canvas.drawRRect(rrect, _getPaint(rect));
   }
 
   void _paintCircle(Canvas canvas, Rect rect) {
-    final Paint paint = _getPaint(rect);
-    final double radius = (rect.shortestSide - width) / 2.0;
+    final paint = _getPaint(rect);
+    final radius = (rect.shortestSide - width) / 2.0;
     canvas.drawCircle(rect.center, radius, paint);
   }
 

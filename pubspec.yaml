@@ -4,7 +4,7 @@ version: 0.2.0
 repository: https://github.com/obiwanzenobi/gradient-borders
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
+  sdk: ">=2.18.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -14,6 +14,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  very_good_analysis: ^3.1.0
 
 flutter:
