@@ -16,4 +16,5 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
       - run: flutter pub get
+      - uses: dart-lang/setup-dart@v1
       - run: dart pub publish --force
