@@ -13,4 +13,5 @@ jobs:
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
-      - uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+      - run: flutter pub get
+      - run: dart pub publish --force
