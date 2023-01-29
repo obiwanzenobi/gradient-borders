@@ -1,15 +1,16 @@
 name: Publish to pub.dev
-
 on:
   push:
     tags:
       - '[0-9]+.[0-9]+.[0-9]+*'
 jobs:
   publish:
-    - uses: actions/checkout@v3
-    - uses: kuhnroyal/flutter-fvm-config-action@v1
-    - uses: subosito/flutter-action@v2
-      with:
-        flutter-version: ${{ env.FLUTTER_VERSION }}
-        cache: true
-    - uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: kuhnroyal/flutter-fvm-config-action@v1
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+      - uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
