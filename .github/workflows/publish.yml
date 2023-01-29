@@ -3,7 +3,7 @@ name: Publish to pub.dev
 on:
   push:
     tags:
-      - '[0-9]+.[0-9]+.[0-9]+*' # tag-pattern on pub.dev: 'v'
+      - '[0-9]+.[0-9]+.[0-9]+*'
 jobs:
   publish:
     - uses: actions/checkout@v3
@@ -12,4 +12,4 @@ jobs:
       with:
         flutter-version: ${{ env.FLUTTER_VERSION }}
         cache: true
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+    - uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
