@@ -88,6 +88,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 label: Text("Example"),
               ),
             ),
+            const SizedBox(height: 16),
+            const TextField(
+              decoration: InputDecoration(
+                border: GradientUnderlineInputBorder(
+                  gradient: LinearGradient(colors: [Colors.red, Colors.blue]),
+                  width: 2,
+                ),
+                focusedBorder: GradientOutlineInputBorder(
+                    gradient:
+                        LinearGradient(colors: [Colors.yellow, Colors.green]),
+                    width: 2),
+                label: Text("Example"),
+              ),
+            ),
           ],
         ),
       ),
