@@ -42,7 +42,25 @@ TextField(
   ),
 ),
 ```
+
 ![image](screenshots/outline_input_borders.png)
+
+You can also use `GradientUnderlineInputBorder` as part of your input decoration:
+```dart
+TextField(
+  decoration: InputDecoration(
+    border: GradientOutlineInputBorder(
+      gradient: LinearGradient(colors: [Colors.red, Colors.blue]),
+      width: 2,
+    ),
+    focusedBorder: GradientUnderlineInputBorder(
+     gradient: LinearGradient(colors: [Colors.yellow, Colors.green]),
+      width: 2
+    ),
+    label: Text("Example"),
+  ),
+),
+```
 
 ### Sponsored by
 [The Code Brothers](https://thecodebrothers.pl)
