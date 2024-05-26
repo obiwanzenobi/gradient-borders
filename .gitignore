@@ -28,3 +28,6 @@
 .packages
 build/
 .metadata
+
+# FVM Version Cache
+.fvm/
