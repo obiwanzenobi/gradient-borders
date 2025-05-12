@@ -1,10 +1,12 @@
 import 'package:flutter/widgets.dart';
 
 class GradientBoxBorder extends BoxBorder {
-  const GradientBoxBorder({required this.gradient, this.width = 1.0});
+  const GradientBoxBorder({
+    required this.gradient,
+    this.width = 1.0,
+  });
 
   final Gradient gradient;
-
   final double width;
 
   @override
