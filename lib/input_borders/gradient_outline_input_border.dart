@@ -60,13 +60,19 @@ class GradientOutlineInputBorder extends InputBorder {
   }) {
     final paint = _getPaint(rect);
     final outer = borderRadius.toRRect(rect);
-    final center = outer.deflate(
-      (switch (borderAlignment) {
-            OutlineBorderAlignment.onEdge => borderSide.width,
-            OutlineBorderAlignment.inside => width
-          }) /
-          2.0,
-    );
+
+    double centerOffset;
+    switch (borderAlignment) {
+      case OutlineBorderAlignment.onEdge:
+        centerOffset = borderSide.width;
+        break;
+      case OutlineBorderAlignment.inside:
+        centerOffset = width;
+        break;
+    }
+
+    final center = outer.deflate(centerOffset / 2.0);
+
     if (gapStart == null || gapExtent <= 0.0 || gapPercentage == 0.0) {
       canvas.drawRRect(center, paint);
     } else {
