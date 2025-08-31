@@ -1,3 +1,6 @@
+## 1.0.2
+* Update to the new flutter (3.32) version
+
 ## 1.0.1
 * Adds `GradientUnderlineInputBorder` (thanks to @thanhtuaung)
 
