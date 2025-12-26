@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -29,22 +30,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool _shouldShowSecondState = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Gradient borders"),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              setState(() {
+                _shouldShowSecondState = !_shouldShowSecondState;
+              });
+            },
+          )
+        ],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 500),
               width: 100,
               height: 100,
               decoration: BoxDecoration(
-                  border: const GradientBoxBorder(
-                    gradient: LinearGradient(colors: [Colors.blue, Colors.red]),
+                  border: GradientBoxBorder(
+                    gradient: _shouldShowSecondState
+                        ? LinearGradient(colors: [Colors.green, Colors.pink])
+                        : LinearGradient(colors: [Colors.blue, Colors.red]),
                     width: 4,
                   ),
                   borderRadius: BorderRadius.circular(16)),
