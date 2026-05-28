@@ -25,11 +25,11 @@ Works with both: border radius, and with `BoxShape.circle`
 
 #### Parameters
 
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `gradient` | `Gradient` | required | The gradient to use for the border color. |
-| `width` | `double` | `1.0` | The width of the border. |
-| `strokeAlign` | `double` | `BorderSide.strokeAlignInside` | The alignment of the stroke relative to the border edge. Use `BorderSide.strokeAlignInside` (-1), `BorderSide.strokeAlignCenter` (0), or `BorderSide.strokeAlignOutside` (1). |
+| Parameter     | Type       | Default                        | Description                                                                                                                                                                   |
+| ------------- | ---------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `gradient`    | `Gradient` | required                       | The gradient to use for the border color.                                                                                                                                     |
+| `width`       | `double`   | `1.0`                          | The width of the border.                                                                                                                                                      |
+| `strokeAlign` | `double`   | `BorderSide.strokeAlignInside` | The alignment of the stroke relative to the border edge. Use `BorderSide.strokeAlignInside` (-1), `BorderSide.strokeAlignCenter` (0), or `BorderSide.strokeAlignOutside` (1). |
 
 ![image](screenshots/box_borders.png)
 
@@ -50,6 +50,16 @@ TextField(
   ),
 ),
 ```
+
+#### Parameters
+
+| Parameter         | Type                     | Default                                | Description                                                                                                                                                |
+| ----------------- | ------------------------ | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `gradient`        | `Gradient`               | required                               | The gradient to use for the border color.                                                                                                                  |
+| `width`           | `double`                 | `1.0`                                  | The width of the border.                                                                                                                                   |
+| `gapPadding`      | `double`                 | `4.0`                                  | Horizontal padding around the label cutout in the border.                                                                                                  |
+| `borderRadius`    | `BorderRadius`           | `BorderRadius.all(Radius.circular(4))` | The border radius of the rounded corners.                                                                                                                  |
+| `borderAlignment` | `OutlineBorderAlignment` | `OutlineBorderAlignment.onEdge`        | Controls where the stroke is drawn relative to the widget edge. `onEdge` draws the border centered on the widget boundary; `inside` draws it fully inside. |
 
 ![image](screenshots/outline_input_borders.png)
 

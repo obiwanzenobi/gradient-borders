@@ -1,3 +1,6 @@
+## 1.0.4
+* Add `borderAlignment` to `GradientOutlineInputBorder` (thanks to @AErmek)
+
 ## 1.0.3
 * Add `strokeAlign` to `GradientBoxBorder`, updated example with align showcase, update readme
 

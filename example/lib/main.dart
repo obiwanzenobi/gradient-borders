@@ -100,6 +100,38 @@ class _MyHomePageState extends State<MyHomePage> {
           const SizedBox(height: 16),
           const TextField(
             decoration: InputDecoration(
+              border: GradientOutlineInputBorder(
+                gradient: LinearGradient(colors: [Colors.red, Colors.blue]),
+                width: 2,
+                borderAlignment: OutlineBorderAlignment.onEdge,
+              ),
+              focusedBorder: GradientOutlineInputBorder(
+                gradient: LinearGradient(colors: [Colors.yellow, Colors.green]),
+                width: 2,
+                borderAlignment: OutlineBorderAlignment.onEdge,
+              ),
+              label: Text("onEdge alignment"),
+            ),
+          ),
+          const SizedBox(height: 16),
+          const TextField(
+            decoration: InputDecoration(
+              border: GradientOutlineInputBorder(
+                gradient: LinearGradient(colors: [Colors.purple, Colors.cyan]),
+                width: 2,
+                borderAlignment: OutlineBorderAlignment.inside,
+              ),
+              focusedBorder: GradientOutlineInputBorder(
+                gradient: LinearGradient(colors: [Colors.orange, Colors.pink]),
+                width: 2,
+                borderAlignment: OutlineBorderAlignment.inside,
+              ),
+              label: Text("inside alignment"),
+            ),
+          ),
+          const SizedBox(height: 16),
+          const TextField(
+            decoration: InputDecoration(
               border: GradientUnderlineInputBorder(
                 gradient: LinearGradient(colors: [Colors.red, Colors.blue]),
                 width: 2,
