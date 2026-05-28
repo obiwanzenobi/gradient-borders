@@ -23,6 +23,14 @@ Container(
 ```
 Works with both: border radius, and with `BoxShape.circle`
 
+#### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `gradient` | `Gradient` | required | The gradient to use for the border color. |
+| `width` | `double` | `1.0` | The width of the border. |
+| `strokeAlign` | `double` | `BorderSide.strokeAlignInside` | The alignment of the stroke relative to the border edge. Use `BorderSide.strokeAlignInside` (-1), `BorderSide.strokeAlignCenter` (0), or `BorderSide.strokeAlignOutside` (1). |
+
 ![image](screenshots/box_borders.png)
 
 ### Input borders

@@ -1,3 +1,6 @@
+## 1.0.3
+* Add `strokeAlign` to `GradientBoxBorder`, updated example with align showcase, update readme
+
 ## 1.0.2
 * Update to the new flutter (3.32) version
 

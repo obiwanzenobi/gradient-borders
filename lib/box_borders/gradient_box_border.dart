@@ -3,10 +3,12 @@ import 'package:flutter/widgets.dart';
 class GradientBoxBorder extends BoxBorder {
   const GradientBoxBorder({
     required this.gradient,
+    this.strokeAlign = BorderSide.strokeAlignInside,
     this.width = 1.0,
   });
 
   final Gradient gradient;
+  final double strokeAlign;
   final double width;
 
   @override
@@ -20,6 +22,26 @@ class GradientBoxBorder extends BoxBorder {
 
   @override
   bool get isUniform => true;
+
+  /// Get the amount of the stroke width that lies inside of the [BorderSide].
+  ///
+  /// For example, this will return the [width] for a [strokeAlign] of -1, half
+  /// the [width] for a [strokeAlign] of 0, and 0 for a [strokeAlign] of 1.
+  double get strokeInset => width * (1 - (1 + strokeAlign) / 2);
+
+  /// Get the amount of the stroke width that lies outside of the [BorderSide].
+  ///
+  /// For example, this will return 0 for a [strokeAlign] of -1, half the
+  /// [width] for a [strokeAlign] of 0, and the [width] for a [strokeAlign]
+  /// of 1.
+  double get strokeOutset => width * (1 + strokeAlign) / 2;
+
+  /// The offset of the stroke, taking into account the stroke alignment.
+  ///
+  /// For example, this will return the negative [width] of the stroke
+  /// for a [strokeAlign] of -1, 0 for a [strokeAlign] of 0, and the
+  /// [width] for a [strokeAlign] of -1.
+  double get strokeOffset => width * strokeAlign;
 
   @override
   void paint(
@@ -48,18 +70,38 @@ class GradientBoxBorder extends BoxBorder {
   }
 
   void _paintRect(Canvas canvas, Rect rect) {
-    canvas.drawRect(rect.deflate(width / 2), _getPaint(rect));
+    final rectWithOffset = switch (strokeAlign) {
+      < 0 => rect.deflate(strokeInset / 2),
+      > 0 => rect.inflate(strokeOutset / 2),
+      _ => rect,
+    };
+    canvas.drawRect(rectWithOffset, _getPaint(rect));
   }
 
   void _paintRRect(Canvas canvas, Rect rect, BorderRadius borderRadius) {
-    final rrect = borderRadius.toRRect(rect).deflate(width / 2);
+    var rrect = borderRadius.toRRect(rect);
+    if (strokeOffset == 0) {
+      rrect = rrect.deflate(strokeOffset);
+    } else if (strokeAlign > 0) {
+      rrect = rrect.inflate(strokeOffset / 2);
+    } else {
+      rrect = rrect.deflate(strokeInset / 2);
+    }
+
     canvas.drawRRect(rrect, _getPaint(rect));
   }
 
   void _paintCircle(Canvas canvas, Rect rect) {
     final paint = _getPaint(rect);
-    final radius = (rect.shortestSide - width) / 2.0;
-    canvas.drawCircle(rect.center, radius, paint);
+    final offset = switch (strokeAlign) {
+          < 0 => -strokeInset,
+          > 0 => strokeOutset,
+          _ => 0,
+        } /
+        2;
+
+    final radius = rect.shortestSide / 2.0;
+    canvas.drawCircle(rect.center, radius + offset, paint);
   }
 
   @override
