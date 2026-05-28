@@ -9,6 +9,7 @@ class GradientOutlineInputBorder extends InputBorder {
     this.width = 1.0,
     this.gapPadding = 4.0,
     this.borderRadius = const BorderRadius.all(Radius.circular(4)),
+    this.borderAlignment = OutlineBorderAlignment.onEdge,
   });
 
   final double width;
@@ -18,6 +19,8 @@ class GradientOutlineInputBorder extends InputBorder {
   final Gradient gradient;
 
   final double gapPadding;
+
+  final OutlineBorderAlignment borderAlignment;
 
   @override
   InputBorder copyWith({BorderSide? borderSide}) {
@@ -57,7 +60,19 @@ class GradientOutlineInputBorder extends InputBorder {
   }) {
     final paint = _getPaint(rect);
     final outer = borderRadius.toRRect(rect);
-    final center = outer.deflate(borderSide.width / 2.0);
+
+    double centerOffset;
+    switch (borderAlignment) {
+      case OutlineBorderAlignment.onEdge:
+        centerOffset = borderSide.width;
+        break;
+      case OutlineBorderAlignment.inside:
+        centerOffset = width;
+        break;
+    }
+
+    final center = outer.deflate(centerOffset / 2.0);
+
     if (gapStart == null || gapExtent <= 0.0 || gapPercentage == 0.0) {
       canvas.drawRRect(center, paint);
     } else {
@@ -173,4 +188,9 @@ class GradientOutlineInputBorder extends InputBorder {
       ..addArc(blCorner, math.pi / 2.0, cornerArcSweep)
       ..lineTo(scaledRRect.left, scaledRRect.top + scaledRRect.tlRadiusY);
   }
+}
+
+enum OutlineBorderAlignment {
+  onEdge,
+  inside,
 }
