@@ -1,3 +1,6 @@
+## 1.0.5
+* [DOCS] update readme with animated gradient scenario workaround
+
 ## 1.0.4
 * Add `borderAlignment` to `GradientOutlineInputBorder` (thanks to @AErmek)
 

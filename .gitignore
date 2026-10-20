@@ -31,3 +31,6 @@ build/
 
 # FVM Version Cache
 .fvm/
+
+# Golden test failure output
+**/failures/
